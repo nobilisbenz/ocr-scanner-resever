@@ -1,0 +1,95 @@
+:root {
+    --bg-black: #000000;
+    --accent-green: #00FF00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background: var(--bg-black);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+#camera,
+#ocrCanvas,
+#highlightLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#ocrCanvas {
+    pointer-events: none;
+    /* Let clicks pass through to highlightLayer */
+    opacity: 0;
+    /* Hidden, used for processing */
+}
+
+#highlightLayer {
+    z-index: 10;
+}
+
+.highlight {
+    position: absolute;
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid var(--accent-green);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#connection-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 20;
+}
+
+.connected {
+    background-color: var(--accent-green);
+    box-shadow: 0 0 5px var(--accent-green);
+}
+
+.disconnected {
+    background-color: red;
+}
+
+#settings-modal {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border: 1px solid #333;
+    z-index: 30;
+    display: flex;
+    gap: 10px;
+}
+
+#ip-input {
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+}
+
+#save-ip {
+    background: var(--accent-green);
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+}

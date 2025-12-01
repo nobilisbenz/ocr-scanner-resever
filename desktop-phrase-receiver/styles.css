@@ -1,0 +1,99 @@
+:root {
+  --bg-black: #000000;
+  --text-white: #FFFFFF;
+  --accent-green: #00FF00;
+  --border-gray: #222222;
+}
+
+* {
+  background: var(--bg-black);
+  color: var(--text-white);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#status-bar {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-gray);
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+#status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 5px var(--accent-green);
+}
+
+#phrasesList {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.phraseItem {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-gray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.phraseText {
+  font-size: 1rem;
+  word-break: break-word;
+  margin-right: 16px;
+}
+
+.copyBtn {
+  background: var(--border-gray);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-white);
+  transition: background 0.2s;
+}
+
+.copyBtn:hover {
+  background: #333;
+}
+
+.copyBtn:active {
+  background: var(--accent-green);
+  color: var(--bg-black);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-gray);
+  border-radius: 4px;
+}
