@@ -1,39 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>OCR Scanner</title>
     <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
-  </head>
+</head>
 
-  <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+<body>
+    <video id="camera" autoplay playsinline></video>
+    <canvas id="ocrCanvas"></canvas>
+    <div id="highlightLayer"></div>
 
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
+    <div id="connection-status" class="disconnected"></div>
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
-  </body>
+    <!-- Settings/IP Modal -->
+    <div id="settings-modal" style="display: none;">
+        <input type="text" id="ip-input" placeholder="Desktop IP (e.g. 192.168.1.5)" />
+        <button id="save-ip">Connect</button>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
 </html>
